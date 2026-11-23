@@ -877,7 +877,8 @@ deployment:
   replicas: ${local.ingress_replica_count}
 service:
   enabled: true
-  type: LoadBalancer
+  spec:
+    type: LoadBalancer
 %{if !local.using_klipper_lb~}
   annotations:
     "load-balancer.hetzner.cloud/name": "${local.load_balancer_name}"
